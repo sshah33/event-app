@@ -21,7 +21,7 @@ import App from './App';
 //import register from './serviceWorker';
 import CompanyDisplay from './components/CompanyDisplay';
 import ActivityDisplay from './components/ActivityDisplay';
-import AddEvent from './components/AddEvent';
+import DisplayEvents from './components/DisplayEvents';
 
 ReactDOM.render(
   <Router>
@@ -29,7 +29,7 @@ ReactDOM.render(
         <Route exact path='/' component={App} />
         <Route path='/companyDisplay' component={CompanyDisplay} />
         <Route path='/activityDisplay' component={ActivityDisplay} />
-        <Route path='/addEvent' component={AddEvent} />
+        <Route path='/displayEvents' component={DisplayEvents} />
       </div>
   </Router>,
   document.getElementById('root')

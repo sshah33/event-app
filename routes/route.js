@@ -52,14 +52,9 @@ router.put('updateCompany/:id', function(req, res, next) {
 */
 
 /* DELETE Company */
-/*
-router.delete('deleteCompany/:id', function(req, res, next) {
-  Company.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-*/
+
+
+
 
 router.get('/activities', function(req, res, next) {
   Activity.find(function (err, products) {
@@ -109,6 +104,13 @@ router.post('/insertEvent', function(req, res, next) {
   console.log('post hua');
   console.log(req.body);
   Event.create(req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+router.delete('deleteEvent/:id', function(req, res, next) {
+  Event.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

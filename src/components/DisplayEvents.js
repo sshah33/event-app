@@ -4,6 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import AddEvent from './AddEvent';
 
 class DisplayEvents extends React.Component {
 	
@@ -11,6 +12,7 @@ class DisplayEvents extends React.Component {
         super(props);
         this.state = {
           events: []
+          
         };
       }
     
@@ -22,18 +24,21 @@ class DisplayEvents extends React.Component {
           });
       }
 
+
 render() {
     return (
-            
-        <div>
-            <h3>EVENTS</h3>
-        <table class="table table-stripe">
+        <div align="center">
+         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous" />
+        <AddEvent />
+            <h3>All Events</h3>
+        <table class="pure-table pure-table-bordered">
         <thead>
           <tr>
             <th>Company</th>
             <th>Activity</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

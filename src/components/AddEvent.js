@@ -2,8 +2,8 @@
 
 import React from 'react';
 import axios from 'axios';
-import DisplayEvents from './DisplayEvents'
 import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 //import Select from 'react-select';
 
 class AddEvent extends React.Component {
@@ -46,11 +46,13 @@ componentDidMount() {
     }
 
 onClick(e) {
+      e.preventDefault();
       this.insertNewEvent(this);
+      this.render();
     }
 insertNewEvent(e) {
 const { activity, company, start, end } = this.state;
-	axios.post('/api/route/insertEvent',{ activity, company, start, end }).then((result) => {
+	axios.post('/api/route/insertEvent',{ activity, company, start, end }).then(() => {
         this.props.history.push("/")
       });
 }
@@ -79,42 +81,42 @@ render() {
 const { activity, company, start, end } = this.state;
 
     return ( 
-      <div>
-        <h4><Link to="/"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Home </Link></h4>
-        <DisplayEvents />
+      <div class="table100-head">
+        <h4><Link class="pure-button pure-button-primary" to="/"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Home </Link></h4>
+        <h2>EVENTS</h2>
         <br></br>
-      <form onSubmit={this.onClick}>
-       <table class="table table-stripe">
+      <form class="pure-form" onSubmit={this.onClick}>
+       <table class="pure-table pure-table-horizontal">
        <thead>
-         <th>Add Event</th>
+         <th colspan="2">Add Event</th>
        </thead>
        <tbody>
-         <tr>
-          <td>activity:</td>
+         <tr class="row100 head">
+          <td>Activity:</td>
          
-         <td><select onChange={this.handleChange} name="activity" value="">
+         <td><select onChange={this.handleChange} name="activity" required>
          <option selected disabled value="">select...</option>
           { optionActivities }
           </select></td>
           </tr>
-          <tr>
-          <td>company:</td>
+          <tr class="row100 head">
+          <td>Company:</td>
           
-          <td><select onChange={this.handleChange} name= "company" value=""> 
+          <td><select onChange={this.handleChange} name= "company" required> 
           <option selected disabled value="">select...</option>
           { optionCompanies }
           </select></td>
           </tr>
-          <tr>
-          <td>start:</td>
-          <input type="date" name= "start" value={start} onChange={this.handleChange} />
+          <tr class="row100 head">
+          <td>Start:</td>
+          <td><input type="datetime-local" required name= "start" value={start} onChange={this.handleChange} /></td>
          </tr>
-         <tr>
-          <td>end:</td>
-          <td><input type="date" name= "end" value={end} onChange={this.handleChange} /></td>
+         <tr class="row100 head">
+          <td>End:</td>
+          <td><input type="datetime-local" required name= "end" value={end} onChange={this.handleChange} /></td>
          </tr>
-         <tr>
-          <td><input type="submit" value="Add" /></td>
+         <tr class="row100 head">
+          <td></td><td><input type="submit" class="pure-button pure-button-primary" value="Add" /></td>
         </tr>
         </tbody>
         </table>
@@ -123,4 +125,4 @@ const { activity, company, start, end } = this.state;
     );
   }
 }
-export default AddEvent;
+export default withRouter(AddEvent);

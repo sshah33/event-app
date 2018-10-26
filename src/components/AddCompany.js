@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 
 class AddCompany extends Component {
 
@@ -39,13 +40,17 @@ class AddCompany extends Component {
             </h3>
           </div>
           <div class="panel-body">
-            <h4><Link to="/"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Home </Link></h4>
-            <form onSubmit={this.onSubmit}>
-              <div class="form-group">
-                <label for="Company">Company:</label>
-                <input type="text" class="form-control" name="cmpnyName" onChange={this.onChange} />
-              </div>
-              <button type="submit" class="btn btn-default">Add</button>
+            <h4><Link class="pure-button pure-button-primary" to="/"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Home </Link></h4>
+            <form class="pure-form" onSubmit={this.onSubmit}>
+            <table class="pure-table pure-table-horizontal">
+            <tr>
+                <td><label for="Company">Company:</label></td>
+                <td><input type="text" required class="form-control" name="cmpnyName" onChange={this.onChange} /></td>
+            </tr>
+            <tr>  
+              <td></td><td><button type="submit" class="pure-button pure-button-primary">Add</button></td>
+            </tr>
+            </table>
             </form>
           </div>
         </div>
@@ -54,4 +59,4 @@ class AddCompany extends Component {
   }
 }
 
-export default AddCompany;
+export default withRouter(AddCompany);
