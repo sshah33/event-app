@@ -2,11 +2,13 @@
   "name": "mern-crud",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sshah33.github.io/event-app",
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "gh-pages": "^2.0.1",
     "mongoose": "^5.3.1",
     "morgan": "^1.9.1",
     "react": "^16.5.2",
@@ -21,6 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "watch": "npm-watch"
   },
   "eslintConfig": {

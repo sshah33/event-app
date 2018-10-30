@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 //app.set('view engine', 'html');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mern-crud', { promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb+srv://admin:admin@cloudshrey-scfsp.mongodb.net/test?retryWrites=true', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
