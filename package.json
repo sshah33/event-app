@@ -2,7 +2,7 @@
   "name": "mern-crud",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sshah33.github.io/",
+  "homepage": "https://sshah33.github.io/event-app",
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.2",

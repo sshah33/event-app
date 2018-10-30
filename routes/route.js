@@ -109,7 +109,7 @@ router.post('/insertEvent', function(req, res, next) {
   });
 });
 
-router.delete('deleteEvent/:id', function(req, res, next) {
+router.delete('/deleteEvent/:id', function(req, res, next) {
   Event.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
