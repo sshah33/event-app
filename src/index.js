@@ -26,7 +26,7 @@ import DisplayEvents from './components/DisplayEvents';
 ReactDOM.render(
   <Router>
       <div>
-        <Route path='/' component={App} />
+        <Route exact path='/' component={App} />
         <Route path='/companyDisplay' component={CompanyDisplay} />
         <Route path='/activityDisplay' component={ActivityDisplay} />
         <Route path='/displayEvents' component={DisplayEvents} />
