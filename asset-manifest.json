@@ -1,0 +1,13 @@
+{
+  "main.css": "/event-app/static/css/main.7a95c8db.chunk.css",
+  "main.js": "/event-app/static/js/main.8b0929bb.chunk.js",
+  "main.js.map": "/event-app/static/js/main.8b0929bb.chunk.js.map",
+  "static/js/1.d25ba8d8.chunk.js": "/event-app/static/js/1.d25ba8d8.chunk.js",
+  "static/js/1.d25ba8d8.chunk.js.map": "/event-app/static/js/1.d25ba8d8.chunk.js.map",
+  "runtime~main.js": "/event-app/static/js/runtime~main.5e580696.js",
+  "runtime~main.js.map": "/event-app/static/js/runtime~main.5e580696.js.map",
+  "static/css/main.7a95c8db.chunk.css.map": "/event-app/static/css/main.7a95c8db.chunk.css.map",
+  "index.html": "/event-app/index.html",
+  "precache-manifest.b2d820b1e7c62d48cb88cb6fd0fefdf4.js": "/event-app/precache-manifest.b2d820b1e7c62d48cb88cb6fd0fefdf4.js",
+  "service-worker.js": "/event-app/service-worker.js"
+}
