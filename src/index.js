@@ -26,10 +26,10 @@ import DisplayEvents from './components/DisplayEvents';
 ReactDOM.render(
   <Router>
       <div>
-        <Route exact path='#/' component={App} />
-        <Route path='#/companyDisplay' component={CompanyDisplay} />
-        <Route path='#/activityDisplay' component={ActivityDisplay} />
-        <Route path='#/displayEvents' component={DisplayEvents} />
+        <Route path='/' component={App} />
+        <Route path='/companyDisplay' component={CompanyDisplay} />
+        <Route path='/activityDisplay' component={ActivityDisplay} />
+        <Route path='/displayEvents' component={DisplayEvents} />
       </div>
   </Router>,
   document.getElementById('root')
