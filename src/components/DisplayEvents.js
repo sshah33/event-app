@@ -4,6 +4,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+
+import moment from 'moment';
+
 import AddEvent from './AddEvent';
 
 class DisplayEvents extends React.Component {
@@ -54,7 +57,7 @@ render() {
         <tbody>
           {this.state.events.map(event =>
             <tr>
-              <td>{event.company}</td><td>{event.activity}</td><td>{event.start}</td><td>{event.end}</td><td><button type="button" class="pure-button button-error" onClick={(e) => {this.deleteEvent(event._id, e)}}>Delete</button></td>
+              <td>{event.company}</td><td>{event.activity}</td><td>{moment(event.start).format('LLL')}</td><td>{moment(event.end).format('LLL')}</td><td><button type="button" class="pure-button button-error" onClick={(e) => {this.deleteEvent(event._id, e)}}>Delete</button></td>
            </tr>
           )}
         </tbody>

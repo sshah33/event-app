@@ -3,8 +3,14 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
 //import Select from 'react-select';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 class AddEvent extends React.Component {
 constructor() {
@@ -14,8 +20,8 @@ constructor() {
         activities: [],
         activity: '',
         company: '',
-        start: '',
-        end: '',
+        start: null,
+        end: null,
         selectedActivity: null,
     };
     this.onClick = this.onClick.bind(this);
@@ -68,6 +74,11 @@ state[e.target.name] = e.target.value;
     this.setState(state);
 
   }
+handleTime(date, label) {
+  const state = this.state;
+  state[label] = date;
+  this.setState(state);
+}
 render() {
   const activities=this.state.activities;
   const companies=this.state.companies;
@@ -109,12 +120,39 @@ const { activity, company, start, end } = this.state;
           </tr>
           <tr class="row100 head">
           <td>Start:</td>
-          <td><input type="datetime-local" required name= "start" value={start} onChange={this.handleChange} /></td>
-         </tr>
-         <tr class="row100 head">
+          <td><DatePicker
+              required
+              selected={this.state.start}
+              showTimeSelect
+              selectsStart
+              timeFormat="HH:mm"
+              dateFormat="LLL"
+              minDate={moment()}
+              maxDate={this.state.end}
+              startDate={this.state.start}
+              endDate={this.state.end}
+              onChange={(date) => {
+                this.handleTime(date, 'start')
+              }}
+          /></td>
+          </tr>
+          <tr class="row100 head">
           <td>End:</td>
-          <td><input type="datetime-local" required name= "end" value={end} onChange={this.handleChange} /></td>
-         </tr>
+          <td><DatePicker
+              required
+              selected={this.state.end}
+              showTimeSelect
+              selectsEnd
+              timeFormat="HH:mm"
+              dateFormat="LLL"
+              minDate={this.state.start}
+              startDate={this.state.start}
+              endDate={this.state.end}
+              onChange={(date) => {
+                this.handleTime(date, 'end')
+              }}
+          /></td>
+          </tr>
          <tr class="row100 head">
           <td></td><td><input type="submit" class="pure-button pure-button-primary" value="Add" /></td>
         </tr>
