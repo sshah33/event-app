@@ -100,7 +100,7 @@ router.get('/event/:id', function(req, res, next) {
 });
 
 /* SAVE Event */
-router.post('/insertEvent', function(req, res, next) {
+router.post('/event', function(req, res, next) {
   console.log('post hua');
   console.log(req.body);
   Event.create(req.body, function (err, post) {
@@ -109,7 +109,7 @@ router.post('/insertEvent', function(req, res, next) {
   });
 });
 
-router.delete('/deleteEvent/:id', function(req, res, next) {
+router.delete('/event/:id', function(req, res, next) {
   Event.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

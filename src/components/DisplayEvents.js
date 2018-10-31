@@ -15,13 +15,23 @@ class DisplayEvents extends React.Component {
           
         };
       }
-    
+      
+      
       componentDidMount() {
         axios.get('/api/route/events')
           .then(res => {
             this.setState({ events: res.data });
             console.log(this.state.events);
           });
+      }
+
+      deleteEvent(id, e)
+      {
+        console.log(id , e);
+        axios.delete('/api/route/event/'+id)
+        .then((result) => {
+          this.componentDidMount();
+        });
       }
 
 
@@ -38,13 +48,13 @@ render() {
             <th>Activity</th>
             <th>Start Date</th>
             <th>End Date</th>
-            <th></th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {this.state.events.map(event =>
             <tr>
-              <td>{event.company}</td><td>{event.activity}</td><td>{event.start}</td><td>{event.end}</td>
+              <td>{event.company}</td><td>{event.activity}</td><td>{event.start}</td><td>{event.end}</td><td><button type="button" class="pure-button button-error" onClick={(e) => {this.deleteEvent(event._id, e)}}>Delete</button></td>
            </tr>
           )}
         </tbody>

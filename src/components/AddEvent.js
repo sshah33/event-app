@@ -51,10 +51,10 @@ onClick(e) {
       this.render();
     }
 insertNewEvent(e) {
-const { activity, company, start, end } = this.state;
-	axios.post('/api/route/insertEvent',{ activity, company, start, end }).then(() => {
-        this.props.history.push("/")
-      });
+  const { activity, company, start, end } = this.state;
+	axios.post('/api/route/event',{ activity, company, start, end }).then(() => {
+    this.props.history.push("/")
+  });
 }
 
 handleSelect = (selectedActivity) => {

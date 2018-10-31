@@ -17,7 +17,7 @@ class App extends Component {
             <tbody>
             <tr><td><h4><Link to="/companyDisplay" class="pure-button pure-button-primary" style={{width: '100%'}}> Display Companies</Link></h4></td></tr>
             <tr><td><h4><Link to="/activityDisplay" class="pure-button pure-button-primary" style={{width: '100%'}}> Display Activities</Link></h4></td></tr>
-            <tr><td><h4><Link to="/displayEvents" class="pure-button pure-button-primary" style={{width: '100%'}}> Add Event</Link></h4></td></tr>
+            <tr><td><h4><Link to="/displayEvents" class="pure-button pure-button-primary" style={{width: '100%'}}> Manage Events</Link></h4></td></tr>
             </tbody>
           </table>
       </div>
